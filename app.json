@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "20260426_mobile_4",
+    "slug": "20260426_mobile_4",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
+    "web": {}
+  }
+}
