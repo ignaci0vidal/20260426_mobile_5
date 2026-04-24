@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
@@ -22,27 +22,27 @@ const App: React.FC = () => {
         screenOptions={({ route }) => ({
           headerShown: false,
 
-          tabBarIcon: ({ color, size }) => {
+          tabBarIcon: ({ color, size, focused }) => {
             let iconName: string;
 
             switch (route.name) {
               case "Inicio":
-                iconName = "home-outline";
+                iconName = focused ? "home" : "home-outline";
                 break;
 
               case "Perfil":
-                iconName = "person-outline";
+                iconName = focused ? "desktop" : "desktop-outline";
                 break;
 
               case "Configuracion":
-                iconName = "settings-outline";
+                iconName = focused ? "settings" : "settings-outline";
                 break;
 
               default:
                 iconName = "help-outline";
             }
 
-            return <Icon name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName as any} size={size} color={color} />;
           },
 
           tabBarActiveTintColor: "#2563eb",
@@ -59,7 +59,11 @@ const App: React.FC = () => {
         })}
       >
         <Tab.Screen name="Inicio" component={HomeScreen} />
-        <Tab.Screen name="Perfil" component={ProfileScreen} />
+        <Tab.Screen
+          name="Perfil"
+          component={ProfileScreen}
+          options={{ tabBarBadge: 3 }}
+        />
         <Tab.Screen name="Configuracion" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
