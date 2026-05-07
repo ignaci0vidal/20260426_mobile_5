@@ -6,10 +6,12 @@ import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SettingsScreen from "./screens/SettingsScreen";
+import FavoritesScreen from "./screens/FavoriteScreen";
 
 export type RootTabParamList = {
   Inicio: undefined;
   Perfil: undefined;
+  Favoritos: undefined;
   Configuracion: undefined;
 };
 
